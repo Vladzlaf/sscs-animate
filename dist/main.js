@@ -26,7 +26,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
   \**************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _assets_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/style.scss */ \"./src/assets/style.scss\");\n\r\n\r\nlet position = 0;\r\nlet direction = 2;\r\nfunction animateSquare() {\r\n  const frame = document.querySelector('.wrap__request-frame');\r\n  const brick = document.querySelector('.wrap__request-frame > .wrap__path-request');\r\n  position += direction;\r\n  brick.style.left = position + 'px';\r\n  if (position >= frame.getBoundingClientRect().width - brick.getBoundingClientRect().width || position <= 0) {\r\n    direction *= -1;\r\n  }\r\n  requestAnimationFrame(animateSquare);\r\n}\r\nanimateSquare();\r\n\r\nlet timePosition = 0;\r\nlet timeDirection = 2;\r\nlet containerWidth = document.querySelector('.wrap__timeout').getBoundingClientRect().width;\r\nfunction animateSquareWithSetTimeout() {\r\n  const btick = document.querySelector('.wrap__timeout > .wrap__path__timeout-brick');\r\n  const btickWidth = btick.getBoundingClientRect().width;\r\n  timePosition += timeDirection;\r\n  btick.style.left = timePosition + 'px';\r\n  if ( timePosition >= containerWidth - btickWidth || timePosition <= 0) {\r\n    timeDirection *= -1;\r\n  }\r\n  setTimeout(animateSquareWithSetTimeout, 20);\r\n}\r\nanimateSquareWithSetTimeout();\n\n//# sourceURL=webpack://css-interexy/./src/app/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _assets_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/style.scss */ \"./src/assets/style.scss\");\n/* harmony import */ var _sort__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sort */ \"./src/app/sort.js\");\n\r\n\r\n\r\nlet position = 0;\r\nlet direction = 2;\r\nfunction animateSquare() {\r\n  const frame = document.querySelector('.wrap__request-frame');\r\n  const brick = document.querySelector('.wrap__path-request');\r\n  position += direction;\r\n  brick.style.left = position + 'px';\r\n  if (position >= frame.getBoundingClientRect().width - brick.getBoundingClientRect().width || position <= 0) {\r\n    direction *= -1;\r\n  }\r\n  requestAnimationFrame(animateSquare);\r\n}\r\nanimateSquare();\r\n\r\nlet containerWidth = document.querySelector('.wrap__timeout').getBoundingClientRect().width;\r\nfunction animateSquareWithSetTimeout() {\r\n  const btick = document.querySelector('.wrap__path__timeout-brick');\r\n  const btickWidth = btick.getBoundingClientRect().width;\r\n  position += direction;\r\n  btick.style.left = position + 'px';\r\n  if ( position >= containerWidth - btickWidth || position <= 0) {\r\n    direction *= -1;\r\n  }\r\n  setTimeout(animateSquareWithSetTimeout, 20);\r\n}\r\nanimateSquareWithSetTimeout();\r\n\r\nconst button = document.querySelector('.warp__button').addEventListener(\"click\", () => (0,_sort__WEBPACK_IMPORTED_MODULE_1__.sort)(array));\r\nlet array = [...Array(100000)].map(()=>{return Math.floor(Math.random()*20)})\r\n \r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\n\n//# sourceURL=webpack://css-interexy/./src/app/index.js?");
+
+/***/ }),
+
+/***/ "./src/app/sort.js":
+/*!*************************!*\
+  !*** ./src/app/sort.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   sort: () => (/* binding */ sort)\n/* harmony export */ });\nasync function sort(arr) { \r\n    const bubble = await bubbleSort(arr)\r\n    const selection = await selectionSort(arr)\r\n \r\n    console.log(123)\r\n \r\n    return {bubble: bubble, selection: selection}\r\n }\r\n \r\n\r\nconst bubbleSort = arr => {\r\n  for (let i = 0, endI = arr.length - 1; i < endI; i++) {\r\n      let wasSwap = false;\r\n      for (let j = 0, endJ = endI - i; j < endJ; j++) {\r\n          if (arr[j] > arr[j + 1]) {\r\n              [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];\r\n              wasSwap = true;\r\n          }\r\n      }\r\n      if (!wasSwap) break;\r\n  }\r\n  return arr;\r\n};\r\n\r\nconst selectionSort = arr => {\r\n  for (let i = 0, l = arr.length, k = l - 1; i < k; i++) {\r\n      let indexMin = i;\r\n      for (let j = i + 1; j < l; j++) {\r\n          if (arr[indexMin] > arr[j]) {\r\n              indexMin = j;\r\n          }\r\n      }\r\n      if (indexMin !== i) {\r\n          [arr[i], arr[indexMin]] = [arr[indexMin], arr[i]];\r\n      }\r\n  }\r\n  return arr;\r\n};\r\n\r\n\r\n\r\n\r\n\n\n//# sourceURL=webpack://css-interexy/./src/app/sort.js?");
 
 /***/ })
 
@@ -57,6 +67,23 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _ass
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports

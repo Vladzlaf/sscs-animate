@@ -62,8 +62,6 @@ ul {
     
 }
 
-
-
 .wrap__menu {
     display: flex;
     align-items: center;
@@ -133,9 +131,9 @@ ul {
     cursor: pointer;
     &.wrap__custom{
         animation: go-left-right 2s infinite alternate; 
-        @keyframes go-left-right {        /* объявляем имя анимации: "go-left-right" */
-            from { left: 0px; }             /* от: left: 0px */
-            to { left: calc(100% - 40px); }} /* до: left: 100%-50px */ 
+        @keyframes go-left-right {        
+            from { left: 0px; }             
+            to { left: calc(100% - 40px); }} 
     }
     &.wrap__build {
         animation: build 2s  infinite;
@@ -149,6 +147,23 @@ ul {
             }} 
 
     }
+  }
+
+  .warp__button {
+    font-family: 'Roboto';
+    font-size: 16px;
+    font-weight: bold;
+    color: $background-color_2; 
+    padding: 14px 25px;
+    border-radius: 6px;
+    background: $background-color_1;
+    margin-top: 2%;
+    border: none;
+  }
+  .warp__button:hover {
+    background: $background-color_1;
+    background: linear-gradient(to top, #616efd, $background-color_1);
+    
   }
 
   
